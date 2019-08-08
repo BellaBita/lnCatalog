@@ -15,7 +15,7 @@ image:
 
 service:
   name: http
-  type: LoadBalancer
+  type: ClusterIP
   externalPort: 7700
   internalPort: 7700
 
