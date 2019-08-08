@@ -8,8 +8,8 @@ image:
     repository: ananwaresystems/webarchive
     tag: "1.0"
   tomcat:
-    repository: lenasupport/lena-manager
-    tag: "cent7_x86_64-1.3.0e-lab"
+    repository: lenasupport/lena-manager-dev
+    tag: "1.3.0e.1-cent7-openjdk8"
   pullPolicy: IfNotPresent
   pullSecrets: []
 
