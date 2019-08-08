@@ -5,8 +5,8 @@
 ## Introduction
 
 This Chart is made from Helm Tomcat 0.2.0 template.
-This chart creates a [tomcat application server](http://tomcat.apache.org) Deployment, plus http Services for the server.
-The chart offers an optimization for application updates running in a servlet container-type engines like tomcat and [Jboss](http://jbossas.jboss.org). The chart uses the WAR, EAR, and other deployable components outside of the Servlet engine as sidecar container so application upgrades requires the sidecar container image only to be updated and not the Servlet engine as if both would run at the same image. 
+This chart creates a [lena application server](http://http://devon.lgcns.com) Deployment, plus http Services for the server.
+The chart offers an optimization for application updates running in a servlet container-type engines like tomcat. 
 
 
 ## Prerequisites
@@ -21,10 +21,10 @@ The chart offers an optimization for application updates running in a servlet co
 To install the chart with the release name `my-release`:
 
 ```bash
-$ helm install --name my-release stable/tomcat
+$ helm install --name my-release stable/lena
 ```
 
-This command deploys a tomcat dedicated server with sane defaults.
+This command deploys a lena dedicated server with sane defaults.
 
 > **Tip**: List all releases using `helm list`
 
@@ -40,14 +40,14 @@ The command removes all the Kubernetes components associated with the chart and 
 
 ## Configuration
 
-The following table lists the configurable parameters of the tomcat chart and their default values.
+The following table lists the configurable parameters of the lena chart and their default values.
 
 Parameter                       | Description                           | Default
 ------------------------------- | ------------------------------------- | ----------------------------------------------------------
 `image.webarchive.repository`   | Sidecar image source repository name  | `ananwaresystems/webarchive`
 `image.webarchive.tag`          | `webarchive` release tag.             | `1.0`
-`image.tomcat.repository`       | Tomact image source repository name   | `lenasupport/lena-manager-dev`
-`image.tomcat.tag`              | `tomcat` release tag.                 | `1.3.0e.1-cent7-openjdk8`
+`image.lena.repository`         | Tomact image source repository name   | `lenasupport/lena-manager-dev`
+`image.lena.tag`                | `lena` release tag.                   | `1.3.0e.1-cent7-openjdk8`
 `image.pullPolicy`              | Image pull policy                     | `IfNotPresent`
 `image.pullSecrets`             | Image pull secrets                    | `[]`
 `deploy.directory`              | Webarchive deployment directory       | `/engn001/lena/1.3/servers/APP_SERVER/webapps`
@@ -61,17 +61,17 @@ Parameter                       | Description                           | Defaul
 `nodeSelector`                  | Node affinity                         | `{}`
 `tolerations`                   | Node tolerations                      | `{}`
 
-Refer to [values.yaml](values.yaml) for the full run-down on defaults. These are a mixture of Kubernetes and tomcat-related directives that map to environment variables. 
+Refer to [values.yaml](values.yaml) for the full run-down on defaults. These are a mixture of Kubernetes and lena-related directives that map to environment variables. 
 
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm install`. For example,
 
 ```bash
 $ helm install --name my-release \
   --set Values.someval=My Server,ImageTag=1.0 \
-    stable/tomcat
+    stable/lena
 ```
 
-The above command deploys Tomcat dedicated with a server name of `My Server` and docker-tomcat image version `1.0`.
+The above command deploys Tomcat dedicated with a server name of `My Server` and docker-lena image version `1.0`.
 
 Alternatively, a YAML file that specifies the values for the parameters can be provided while installing the chart. For example,
 

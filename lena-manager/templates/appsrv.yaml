@@ -1,22 +1,22 @@
 apiVersion: apps/v1beta2
 kind: Deployment
 metadata:
-  name: {{ template "tomcat.fullname" . }}
+  name: {{ template "lena.fullname" . }}
   labels:
-    app: {{ template "tomcat.name" . }}
-    chart: {{ template "tomcat.chart" . }}
+    app: {{ template "lena.name" . }}
+    chart: {{ template "lena.chart" . }}
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      app: {{ template "tomcat.name" . }}
+      app: {{ template "lena.name" . }}
       release: {{ .Release.Name }}
   template:
     metadata:
       labels:
-        app: {{ template "tomcat.name" . }}
+        app: {{ template "lena.name" . }}
         release: {{ .Release.Name }}
     spec:
       containers:
@@ -27,11 +27,10 @@ spec:
           - -xpx
           - {{ .Values.javaOptions.MaxMetaspaceSize }}
         - name: {{ .Chart.Name }}
-          image: {{ .Values.image.tomcat.repository }}:{{ .Values.image.tomcat.tag }}
+          image: {{ .Values.image.lena.repository }}:{{ .Values.image.lena.tag }}
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
             - containerPort: {{ .Values.service.internalPort }}
-              hostPort: 8009
           livenessProbe:
             httpGet:
               path: {{ .Values.livenessProbe.path }}

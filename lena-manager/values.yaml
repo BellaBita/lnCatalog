@@ -7,7 +7,7 @@ image:
   webarchive:
     repository: ananwaresystems/webarchive
     tag: "1.0"
-  tomcat:
+  lena:
     repository: lenasupport/lena-manager-dev
     tag: "1.3.0e.1-cent7-openjdk8"
   pullPolicy: IfNotPresent
@@ -16,8 +16,8 @@ image:
 service:
   name: http
   type: LoadBalancer
-  externalPort: 80
-  internalPort: 8180
+  externalPort: 7700
+  internalPort: 7700
 
 ingress:
   enabled: false
