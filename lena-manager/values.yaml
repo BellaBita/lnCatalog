@@ -55,3 +55,8 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
+
+#
+javaOptions:
+  Xmx: 512m
+  MaxMetaspaceSize: 128m

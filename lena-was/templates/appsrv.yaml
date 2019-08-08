@@ -40,6 +40,10 @@ spec:
           - {{ .Values.lenaManagerIp }}:{{ .Values.lenaManagerPort}}
           - -sn
           - {{ template "tomcat.fullname" . }}
+          - -xmx
+          - {{ .Values.javaOptions.Xmx }}
+          - -xpx
+          - {{ .Values.javaOptions.MaxMetaspaceSize }}
           - -ta
           - {{ .Values.tunaServerIp }}
           name: {{ .Chart.Name }}
