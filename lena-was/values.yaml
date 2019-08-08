@@ -9,7 +9,7 @@ image:
     tag: "1.0"
   tomcat:
     repository: lenasupport/lena-exclusive-dev
-    tag: "cent7_x86_64-1.3.0e-lab.512"
+    tag: "1.3.0e.1-cent7-openjdk8"
   pullPolicy: IfNotPresent
   pullSecrets: []
 
