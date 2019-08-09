@@ -14,10 +14,11 @@ image:
   pullSecrets: []
 
 service:
-  name: LENAManager
+  name: lena-manager
   type: ClusterIP
   externalPort: 7700
   internalPort: 7700
+  clusterIP: 
 
 ingress:
   enabled: false
