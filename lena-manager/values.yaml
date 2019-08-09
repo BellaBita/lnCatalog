@@ -14,7 +14,7 @@ image:
   pullSecrets: []
 
 service:
-  name: http
+  name: LENAManager
   type: ClusterIP
   externalPort: 7700
   internalPort: 7700
