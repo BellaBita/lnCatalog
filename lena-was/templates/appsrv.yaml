@@ -37,7 +37,13 @@ spec:
         - command:
           - ./docker-entrypoint.sh
           - -r
-          - {{ .Values.lenaManagerIp }}:{{ .Values.lenaManagerPort}}
+          - {{ .Values.lena.managerIP }}:{{ .Values.lena.managerPort}}
+          - -rv
+          - {{ .Values.lena.registerLevel }}
+           {{if .Values.lena.clusterName }}
+          - -cl
+          - {{ .Values.lena.clusterName }}
+          {{end}}
           - -sn
           - {{ template "tomcat.fullname" . }}
           - -xmx
