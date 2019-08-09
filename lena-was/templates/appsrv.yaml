@@ -40,7 +40,7 @@ spec:
           - {{ .Values.lena.managerIP }}:{{ .Values.lena.managerPort}}
           - -rv
           - {{ .Values.lena.registerLevel }}
-           {{if .Values.lena.clusterName }}
+          {{if .Values.lena.clusterName }}
           - -cl
           - {{ .Values.lena.clusterName }}
           {{end}}
