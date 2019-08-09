@@ -3,7 +3,7 @@ appVersion: "7"
 description: Deploy a basic lena application server with sidecar as web archive
 maintainers:
 - email: lena-support@lgcns.com
-  name: mirsiss
+  name: LENA
 name: lena
 version: 1.0.0
 icon: http://devon.lgcns.com/images/lena_gray.png
