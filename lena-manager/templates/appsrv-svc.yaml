@@ -18,7 +18,7 @@ spec:
     - port: 16100
       targetPort: 16100
       protocol: UDP
-      name: {{ .Values.service.name }}_udp
+      name: {{ .Values.service.name }}-udp
   selector:
     app: {{ template "lena.name" . }}
     release: {{ .Release.Name }}
