@@ -17,7 +17,7 @@ spec:
     - port: 16800
       targetPort: 16800
       protocol: TCP
-      name: {{ .Values.service.name }}-agebt
+      name: {{ .Values.service.name }}-agent
   selector:
     app: {{ template "lena.name" . }}
     release: {{ .Release.Name }}
