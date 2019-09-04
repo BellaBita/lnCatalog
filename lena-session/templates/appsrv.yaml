@@ -33,7 +33,7 @@ spec:
           - {{ .Values.lena.clusterName }}
           {{end}}
           - -sn
-          - {{ template "tomcat.fullname" . }}
+          - {{ template "lena.fullname" . }}
           - -xmx
           - {{ .Values.javaOptions.Xmx }}
           - -xpx
@@ -41,8 +41,8 @@ spec:
           name: {{ .Chart.Name }}
           env:
           - name: CATALINA_OPTS
-            value: -DserverName={{ template "tomcat.fullname" . }}
-          image: {{ .Values.image.tomcat.repository }}:{{ .Values.image.tomcat.tag }}
+            value: -DserverName={{ template "lena.fullname" . }}
+          image: {{ .Values.image.lena.repository }}:{{ .Values.image.lena.tag }}
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           volumeMounts:
             - name: app-volume
