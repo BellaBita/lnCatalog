@@ -22,10 +22,12 @@ spec:
       containers:
         - command:
           - ./docker-entrypoint.sh
+          {{if .Values.lena.managerIP }}
           - -r
           - {{ .Values.lena.managerIP }}:{{ .Values.lena.managerPort}}
           - -rv
           - {{ .Values.lena.registerLevel }}
+          {{end}}
           {{if .Values.lena.clusterName }}
           - -cl
           - {{ .Values.lena.clusterName }}
