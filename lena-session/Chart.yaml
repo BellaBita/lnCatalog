@@ -4,6 +4,6 @@ description: Deploy a basic lena application server with sidecar as web archive
 maintainers:
 - email: lena-support@lgcns.com
   name: LENA
-name: lena
+name: lena-session
 version: 1.0.0
 icon: http://devon.lgcns.com/images/lena_gray.png
