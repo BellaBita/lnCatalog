@@ -60,7 +60,7 @@ tolerations: []
 affinity: {}
 
 lena:
-  managerIP: 127.0.0.1:7700
+  managerIP: 127.0.0.1
   managerPort: 7700
   registerLevel: server
   clusterName:
