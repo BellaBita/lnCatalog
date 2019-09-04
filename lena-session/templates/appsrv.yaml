@@ -16,7 +16,7 @@ spec:
   template:
     metadata:
       labels:
-        app: {{ template "tomcat.name" . }}
+        app: {{ template "lena.name" . }}
         release: {{ .Release.Name }}
     spec:
       containers:
