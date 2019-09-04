@@ -38,8 +38,6 @@ spec:
           - {{ .Values.javaOptions.Xmx }}
           - -xpx
           - {{ .Values.javaOptions.MaxMetaspaceSize }}
-          - -ta
-          - {{ .Values.tunaServerIp }}
           name: {{ .Chart.Name }}
           env:
           - name: CATALINA_OPTS
