@@ -14,6 +14,10 @@ spec:
       targetPort: {{ .Values.service.internalPort }}
       protocol: TCP
       name: {{ .Values.service.name }}
+    - port: 16800
+      targetPort: 16800
+      protocol: TCP
+      name: {{ .Values.service.name }}-agebt
   selector:
     app: {{ template "lena.name" . }}
     release: {{ .Release.Name }}
