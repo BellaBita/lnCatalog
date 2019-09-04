@@ -48,7 +48,7 @@ Parameter                       | Description                           | Defaul
 `image.lena.tag`                | LENA release tag.                     | `1.3.0e.1-cent7-openjdk8`
 `image.pullPolicy`              | Image pull policy                     | `IfNotPresent`
 `image.pullSecrets`             | Image pull secrets                    | `[]`
-`service.name`                  | LENA session service name             | `lenaSession`
+`service.name`                  | LENA session service name             | `lena-session`
 `service.externalPort`          | Kubernetes service port               | `6000`
 `service.internalPort`          | Tomcat front port                     | `6000`
 `service.type`                  | Kubernetes service type               | `ClusteIP`
