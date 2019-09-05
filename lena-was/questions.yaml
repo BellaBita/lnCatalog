@@ -20,7 +20,9 @@ questions:
   - variable: lena.managerPort
     default: "7700"
     description: "LENA Manager's service port"
-    type: string
+    type: int
+    min: 1
+    max: 65535
     label: LENA Manager Service Port
     required: true
   - variable: lena.registerLevel
