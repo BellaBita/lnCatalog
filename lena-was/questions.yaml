@@ -35,12 +35,18 @@ questions:
       - "clone"
     label: Register Level
     required: true
+  - variable: lena.clusterName
+    default: ""
+    description: "Name of LENA server cluster"
+    type: string
+    label: LENA Manager IP Address
+    required: true
   - variable: lena.licenseType
     default: ""
-    description: "The license type"
+    description: "The name of LENA server cluster"
     type: enum
     options:
-      - ""
+      - "node"
       - "manager"
     label: License Type
     required: false
