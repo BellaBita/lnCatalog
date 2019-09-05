@@ -1,22 +1,22 @@
 apiVersion: apps/v1beta2
 kind: Deployment
 metadata:
-  name: {{ template "tomcat.fullname" . }}
+  name: {{ template "lena.fullname" . }}
   labels:
-    app: {{ template "tomcat.name" . }}
-    chart: {{ template "tomcat.chart" . }}
+    app: {{ template "lena.name" . }}
+    chart: {{ template "lena.chart" . }}
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      app: {{ template "tomcat.name" . }}
+      app: {{ template "lena.name" . }}
       release: {{ .Release.Name }}
   template:
     metadata:
       labels:
-        app: {{ template "tomcat.name" . }}
+        app: {{ template "lena.name" . }}
         release: {{ .Release.Name }}
     spec:
       volumes:
@@ -45,7 +45,7 @@ spec:
           - {{ .Values.lena.clusterName }}
           {{end}}
           - -sn
-          - {{ template "tomcat.fullname" . }}
+          - {{ template "lena.fullname" . }}
           - -xmx
           - {{ .Values.javaOptions.Xmx }}
           - -xpx
@@ -55,8 +55,8 @@ spec:
           name: {{ .Chart.Name }}
           env:
           - name: CATALINA_OPTS
-            value: -DserverName={{ template "tomcat.fullname" . }}
-          image: {{ .Values.image.tomcat.repository }}:{{ .Values.image.tomcat.tag }}
+            value: -DserverName={{ template "lena.fullname" . }}
+          image: {{ .Values.image.lena.repository }}:{{ .Values.image.lena.tag }}
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           volumeMounts:
             - name: app-volume
