@@ -66,9 +66,6 @@ lena:
   clusterName:
   licenseType:
 
-tunaServerIp: 127.0.0.1
-
-#
 javaOptions:
   Xmx: 512m
   MaxMetaspaceSize: 128m
