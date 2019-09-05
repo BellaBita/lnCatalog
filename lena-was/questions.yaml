@@ -9,7 +9,7 @@ questions:
   label: Auto Registration Enabled
   required: true
   group: "Server Register Settings"
-  show_subquestion_if: "NodePort"
+  show_subquestion_if: "true"
   subquestions:
   - variable: lena.managerIP
     default: ""
