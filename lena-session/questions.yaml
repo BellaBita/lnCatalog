@@ -32,18 +32,8 @@ questions:
     options:
       - "node"
       - "server"
-      - "noSync"
-      - "noWebSync"
-      - "sync"
-      - "clone"
     label: Register Level
     required: true
-  - variable: lena.clusterName
-    default: ""
-    description: "The name of LENA server cluster, this is available when register level is noSync, noWebSync, sync, clone."
-    type: string
-    label: Name of LENA server cluster
-    required: false
   - variable: lena.licenseType
     default: "node"
     description: "The license type of LENA WAS."
@@ -54,15 +44,14 @@ questions:
     label: License Type
     required: false
 - variable: service.type
-  default: "NodePort"
-  description: "LENA WAS K8s Service type"
+  default: "ClusterIP"
+  description: "LENA Session K8s Service type"
   type: enum
   options:
     - "ClusterIP"
     - "NodePort"
-    - "LoadBalancer"
   required: true
-  label: MariaDB Service Type
+  label: LENA Session Service Type
   show_subquestion_if: "NodePort"
   group: "Services and Load Balancing"
   subquestions:
@@ -83,10 +72,10 @@ questions:
   label: Max & min heap memory size of JVM.(MByte)
   group: "Java Virtual Machine Options"
 - variable: javaOptions.MaxMetaspaceSize
-  default: "128"
-  description: "Max Metaspace memory size of JVM. Default is 128m"
+  default: "64"
+  description: "Max Metaspace memory size of JVM. Default is 64m"
   type: int
-  min: 128
+  min: 64
   max: 512
   required: false
   label: Max heap memory size of JVM.(MByte)
