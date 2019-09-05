@@ -64,6 +64,7 @@ lena:
   managerPort: 7700
   registerLevel: server
   clusterName:
+  licenseType:
 
 tunaServerIp: 127.0.0.1
 

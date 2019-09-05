@@ -1,0 +1,66 @@
+categories:
+- Web Application Server
+- LENA
+questions:
+- variable: lena.autoRegister
+  default: "true"
+  description: "Register server to LENA Manager when container start."
+  type: boolean
+  label: Auto Registration Enabled
+  required: true
+  group: "Server Register Settings"
+  show_subquestion_if: "NodePort"
+  subquestions:
+  - variable: lena.managerIP
+    default: ""
+    description: "LENA Manager's IP Address"
+    type: string
+    label: LENA Manager IP Address
+    required: true
+  - variable: lena.managerPort
+    default: "7700"
+    description: "LENA Manager's service port"
+    type: string
+    label: LENA Manager Service Port
+    required: true
+  - variable: lena.registerLevel
+    default: "server"
+    description: "Register Level"
+    type: enum
+    options:
+      - "node"
+      - "server"
+      - "noSync"
+      - "noWebSync"
+      - "clone"
+    label: Register Level
+    required: true
+  - variable: lena.licenseType
+    default: ""
+    description: "The license type"
+    type: enum
+    options:
+      - ""
+      - "manager"
+    label: License Type
+    required: false
+- variable: service.type
+  default: "NodePort"
+  description: "LENA WAS K8s Service type"
+  type: enum
+  options:
+    - "ClusterIP"
+    - "NodePort"
+    - "LoadBalancer"
+  required: true
+  label: MariaDB Service Type
+  show_subquestion_if: "NodePort"
+  group: "Services and Load Balancing"
+  subquestions:
+  - variable: service.nodePort
+    default: ""
+    description: "NodePort port number(to set explicitly, choose port between 2000-65535)"
+    type: int
+    min: 2000
+    max: 65535
+    label: Service NodePort number
