@@ -37,13 +37,13 @@ questions:
     required: true
   - variable: lena.clusterName
     default: ""
-    description: "Name of LENA server cluster"
-    type: string
-    label: LENA Manager IP Address
-    required: true
-  - variable: lena.licenseType
-    default: ""
     description: "The name of LENA server cluster"
+    type: string
+    label: Name of LENA server cluster
+    required: false
+  - variable: lena.licenseType
+    default: "node"
+    description: "The license type of LENA WAS."
     type: enum
     options:
       - "node"
