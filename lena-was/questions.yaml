@@ -32,12 +32,13 @@ questions:
       - "server"
       - "noSync"
       - "noWebSync"
+      - "sync"
       - "clone"
     label: Register Level
     required: true
   - variable: lena.clusterName
     default: ""
-    description: "The name of LENA server cluster"
+    description: "The name of LENA server cluster, this is available when register level is noSync, noWebSync, sync, clone."
     type: string
     label: Name of LENA server cluster
     required: false
@@ -67,6 +68,6 @@ questions:
     default: ""
     description: "NodePort port number(to set explicitly, choose port between 2000-65535)"
     type: int
-    min: 2000
-    max: 65535
+    min: 30000
+    max: 32767
     label: Service NodePort number
