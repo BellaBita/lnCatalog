@@ -77,8 +77,8 @@ questions:
   default: "1024"
   description: "Max and min heap memory size of JVM. Default is 1024m"
   type: int
-  min: 512
-  max: 4096
+  min: 256
+  max: 8192
   required: false
   label: Max & min heap memory size of JVM.(MByte)
   group: "Java Virtual Machine Options"
@@ -86,8 +86,8 @@ questions:
   default: "128"
   description: "Max Metaspace memory size of JVM. Default is 128m"
   type: int
-  min: 128
-  max: 512
+  min: 32
+  max: 1024
   required: false
   label: Max heap memory size of JVM.(MByte)
   group: "Java Virtual Machine Options"

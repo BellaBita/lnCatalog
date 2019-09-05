@@ -61,9 +61,11 @@ Parameter                       | Description                           | Defaul
 `resources`                     | CPU/Memory resource requests/limits   | `{}`
 `nodeSelector`                  | Node affinity                         | `{}`
 `tolerations`                   | Node tolerations                      | `{}`
-`lenaManagerIp`                 | LENA Manager IP                       | `127.0.0.1`
-`lenaManagerPort`               | LENA Manager Port                     | `7700`
-`tunaServerIp`                  | TunA Server IP                        | `127.0.0.1`
+`lena.managerIp`                | LENA Manager IP                       | `127.0.0.1`
+`lena.managerPort`              | LENA Manager Port                     | `7700`
+`lena.licenseType`              | LENA License Type (node or manager)   | ``
+`javaOptions.Xmx`               | Max & Min java heap memory size       | `1024`
+`javaOptions.MaxMetaspaceSize`  | Max metaspace size of JVM             | `128`
 
 Refer to [values.yaml](values.yaml) for the full run-down on defaults. These are a mixture of Kubernetes and lena-related directives that map to environment variables. 
 
