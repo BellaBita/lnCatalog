@@ -30,10 +30,12 @@ ingress:
   #      - chart-example.local
 
 readinessProbe:
+  path: "/"
   initialDelaySeconds: 60
   periodSeconds: 30
   failureThreshold: 6
 livenessProbe:
+  path: "/"
   initialDelaySeconds: 60
   periodSeconds: 30
 

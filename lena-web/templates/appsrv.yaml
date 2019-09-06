@@ -45,12 +45,14 @@ spec:
           ports:
             - containerPort: {{ .Values.service.internalPort }}
           livenessProbe:
-            tcpSocket:
+            httpGet:
+              path: {{ .Values.livenessProbe.path }}
               port: {{ .Values.service.internalPort }}
             initialDelaySeconds: {{ .Values.livenessProbe.initialDelaySeconds }}
             periodSeconds: {{ .Values.livenessProbe.periodSeconds }}
           readinessProbe:
-            tcpSocket:
+            httpGet:
+              path: {{ .Values.readinessProbe.path }}
               port: {{ .Values.service.internalPort }}
             initialDelaySeconds: {{ .Values.readinessProbe.initialDelaySeconds }}
             periodSeconds: {{ .Values.readinessProbe.periodSeconds }}
