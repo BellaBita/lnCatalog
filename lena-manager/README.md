@@ -1,10 +1,10 @@
 # LENA 
 
-[LENA](http://devon.lgcns.com/html/lena.html) is is an open source implementation of the Java Servlet, JavaServer Pages, Java Expression Language and Java WebSocket technologies.
+[LENA](http://devon.lgcns.com/html/lena.html) is is an implementation of the Java Servlet, JavaServer Pages, Java Expression Language and Java WebSocket technologies.
 
 ## Introduction
 
-This Chart is made from Helm Tomcat 0.2.0 template.
+This Chart is made from Helm template.
 This chart creates a [lena application server](http://http://devon.lgcns.com) Deployment, plus http Services for the server.
 The chart offers an optimization for application updates running in a servlet container-type engines like tomcat. 
 

@@ -1,0 +1,125 @@
+categories:
+- Web Application Server
+- LENA
+questions:
+############################################
+## Workload and Image
+############################################
+- variable: replicaCount
+  default: "1"
+  description: "The count of pod replica"
+  type: int
+  min: 1
+  max: 16
+  label: Replica Count
+  required: true
+  group: "Workload & Image"
+- variable: image.pullPolicy
+  default: "IfNotPresent"
+  description: "Pull policy of container image"
+  type: enum
+  options : 
+    - "IfNotPresent"
+    - "Always" 
+  label: Image PullPolicy
+  required: true
+  group: "Workload & Image"
+- variable: image.lena.repository
+  default: "lenasupport/lena-web-dev"
+  description: "Repository of LENA image"
+  type: string
+  label: LENA image repository
+  required: true
+  group: "Workload & Image"
+- variable: image.lena.tag
+  default: "1.3.0e.1-cent7-openjdk8"
+  description: "Tag of LENA image"
+  type: string
+  label: LENA image tag
+  required: true
+  group: "Workload & Image"
+############################################
+## Auto Registrations
+############################################
+- variable: lena.autoRegister
+  default: "true"
+  description: "Register server to LENA Manager when container start."
+  type: boolean
+  label: Auto Registration Enabled
+  required: true
+  group: "Server Register Settings"
+  show_subquestion_if: "true"
+  subquestions:
+  - variable: lena.registerLevel
+    default: "server"
+    description: "Register Level"
+    type: enum
+    options:
+      - "node"
+      - "server"
+      - "noSync"
+      - "noWebSync"
+      - "sync"
+      - "clone"
+    label: Register Level
+    required: true
+  - variable: lena.managerIP
+    default: "10.42.0.7"
+    description: "LENA Manager's IP Address"
+    type: string
+    label: LENA Manager IP Address
+    required: true
+  - variable: lena.managerPort
+    default: "7700"
+    description: "LENA Manager's service port"
+    type: int
+    min: 1
+    max: 65535
+    label: LENA Manager Service Port
+    required: true
+  - variable: lena.clusterName
+    default: ""
+    description: "The name of LENA server cluster, this is available when register level is noSync, noWebSync, sync, clone."
+    type: string
+    label: Name of LENA server cluster
+    required: false
+  - variable: lena.licenseType
+    default: "node"
+    description: "The license type of LENA WAS."
+    type: enum
+    options:
+      - "node"
+      - "manager"
+    label: License Type
+    required: false
+  - variable: lena.registerTimeout
+    default: "60000"
+    description: "Max wait time for registering server. (unit : Milli-seconds)"
+    type: int
+    min: 60000
+    max: 600000
+    label: Register Timeout (ms)
+    required: false
+############################################
+## K8S Service
+############################################
+- variable: service.type
+  default: "NodePort"
+  description: "LENA WAS K8s Service type"
+  type: enum
+  options:
+    - "ClusterIP"
+    - "NodePort"
+    - "LoadBalancer"
+  required: true
+  label: MariaDB Service Type
+  show_subquestion_if: "NodePort"
+  group: "Services and Load Balancing"
+  subquestions:
+  - variable: service.nodePort
+    default: ""
+    description: "NodePort port number(to set explicitly, choose port between 30000-32767)"
+    type: int
+    min: 30000
+    max: 32767
+    label: Service NodePort number

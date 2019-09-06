@@ -1,0 +1,71 @@
+apiVersion: apps/v1beta2
+kind: Deployment
+metadata:
+  name: {{ template "lena.fullname" . }}
+  labels:
+    app: {{ template "lena.name" . }}
+    chart: {{ template "lena.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ template "lena.name" . }}
+      release: {{ .Release.Name }}
+  template:
+    metadata:
+      labels:
+        app: {{ template "lena.name" . }}
+        release: {{ .Release.Name }}
+    spec:
+      containers:
+        - command:
+          - ./docker-entrypoint.sh
+          {{if .Values.lena.managerIP }}
+          - -r
+          - {{ .Values.lena.managerIP }}:{{ .Values.lena.managerPort}}
+          - -rv
+          - {{ .Values.lena.registerLevel }}
+          {{end}}
+          {{if .Values.lena.clusterName }}
+          - -cl
+          - {{ .Values.lena.clusterName }}
+          {{end}}
+          {{if .Values.lena.registerTimeout }}
+          - -rt
+          - {{ .Values.lena.registerLevel }}
+          {{end}}
+          - -sn
+          - {{ template "lena.fullname" . }}
+          name: {{ .Chart.Name }}
+          env:
+          image: {{ .Values.image.lena.repository }}:{{ .Values.image.lena.tag }}
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - containerPort: {{ .Values.service.internalPort }}
+          livenessProbe:
+            tcpSocket:
+              port: {{ .Values.service.internalPort }}
+            initialDelaySeconds: {{ .Values.livenessProbe.initialDelaySeconds }}
+            periodSeconds: {{ .Values.livenessProbe.periodSeconds }}
+          readinessProbe:
+            tcpSocket:
+              port: {{ .Values.service.internalPort }}
+            initialDelaySeconds: {{ .Values.readinessProbe.initialDelaySeconds }}
+            periodSeconds: {{ .Values.readinessProbe.periodSeconds }}
+            failureThreshold: {{ .Values.readinessProbe.failureThreshold }}
+          resources:
+{{ toYaml .Values.resources | indent 12 }}
+    {{- if .Values.image.pullSecrets }}
+      imagePullSecrets:
+{{ toYaml .Values.image.pullSecrets | indent 8 }}
+    {{- end }}
+    {{- if .Values.nodeSelector }}
+      nodeSelector:
+{{ toYaml .Values.nodeSelector | indent 8 }}
+    {{- end }}
+    {{- if .Values.tolerations }}
+      tolerations:
+{{ toYaml .Values.tolerations | indent 8 }}
+    {{- end }}
