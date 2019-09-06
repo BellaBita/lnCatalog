@@ -95,9 +95,7 @@ questions:
   - variable: lena.registerTimeout
     default: "60000"
     description: "Max wait time for registering server. (unit : Milli-seconds)"
-    type: int
-    min: 60000
-    max: 600000
+    type: string
     label: Register Timeout (ms)
     required: false
 ############################################
