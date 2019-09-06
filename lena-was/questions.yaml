@@ -106,14 +106,12 @@ questions:
       - "manager"
     label: License Type
     required: false
-  - variable: lena.registerTimeout
-    default: "60000"
-    description: "Max wait time for registering server. (unit : Milli-seconds)"
-    type: int
-    min: 60000
-    max: 600000
-    label: Register Timeout (ms)
-    required: false
+#  - variable: lena.registerTimeout
+#    default: "60000"
+#    description: "Max wait time for registering server. (unit : Milli-seconds, default : 60000)"
+#    type: string
+#    label: Register Timeout (ms)
+#    required: false
 ############################################
 ## K8S Service
 ############################################
