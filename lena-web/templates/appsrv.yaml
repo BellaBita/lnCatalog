@@ -34,7 +34,7 @@ spec:
           {{end}}
           {{if .Values.lena.registerTimeout }}
           - -rt
-          - {{ .Values.lena.registerLevel }}
+          - {{ .Values.lena.registerTimeout }}
           {{end}}
           - -sn
           - {{ template "lena.fullname" . }}
