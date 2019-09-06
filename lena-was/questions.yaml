@@ -32,7 +32,7 @@ questions:
   required: true
   group: "Workload & Image"
 - variable: image.webarchive.tag
-  default: "latest"
+  default: "1.0"
   description: "Tag of web application image"
   type: string
   label: Application image tag
@@ -78,7 +78,7 @@ questions:
     label: Register Level
     required: true
   - variable: lena.managerIP
-    default: ""
+    default: "10.42.0.7"
     description: "LENA Manager's IP Address"
     type: string
     label: LENA Manager IP Address
