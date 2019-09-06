@@ -65,6 +65,7 @@ lena:
   registerLevel: server
   clusterName:
   licenseType:
+  registerTimeout:
 
 javaOptions:
   Xmx: 512m

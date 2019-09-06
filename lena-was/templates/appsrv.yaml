@@ -50,6 +50,10 @@ spec:
           {{end}}
           - -sn
           - {{ template "lena.fullname" . }}
+          {{if .Values.lena.registerTimout }}
+          - -rt
+          - {{ .Values.lena.registerTimout }}
+          {{end}}
           - -xmx
           - {{ .Values.javaOptions.Xmx }}
           - -xpx
