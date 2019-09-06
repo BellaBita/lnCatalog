@@ -13,8 +13,8 @@ image:
 service:
   name: lena-session
   type: ClusterIP
-  externalPort: 6000
-  internalPort: 6000
+  externalPort: 7180
+  internalPort: 7180
 
 ingress:
   enabled: false
