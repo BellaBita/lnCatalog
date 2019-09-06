@@ -11,6 +11,15 @@ questions:
   group: "Server Register Settings"
   show_subquestion_if: "true"
   subquestions:
+  - variable: lena.registerLevel
+    default: "server"
+    description: "Register Level"
+    type: enum
+    options:
+      - "node"
+      - "server"
+    label: Register Level
+    required: true
   - variable: lena.managerIP
     default: ""
     description: "LENA Manager's IP Address"
@@ -24,15 +33,6 @@ questions:
     min: 1
     max: 65535
     label: LENA Manager Service Port
-    required: true
-  - variable: lena.registerLevel
-    default: "server"
-    description: "Register Level"
-    type: enum
-    options:
-      - "node"
-      - "server"
-    label: Register Level
     required: true
   - variable: lena.licenseType
     default: "node"
