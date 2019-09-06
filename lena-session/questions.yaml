@@ -63,20 +63,16 @@ questions:
     max: 32767
     label: Service NodePort number
 - variable: javaOptions.Xmx
-  default: "1024"
+  default: "1024m"
   description: "Max and min heap memory size of JVM. Default is 1024m"
-  type: int
-  min: 512
-  max: 4096
+  type: string
   required: false
   label: Max & min heap memory size of JVM.(MByte)
   group: "Java Virtual Machine Options"
 - variable: javaOptions.MaxMetaspaceSize
-  default: "64"
+  default: "64m"
   description: "Max Metaspace memory size of JVM. Default is 64m"
-  type: int
-  min: 64
-  max: 512
+  type: string
   required: false
   label: Max heap memory size of JVM.(MByte)
   group: "Java Virtual Machine Options"
