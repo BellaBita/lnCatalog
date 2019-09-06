@@ -12,10 +12,13 @@ spec:
   ports:
     - port: {{ .Values.service.externalPort }}
       targetPort: {{ .Values.service.internalPort }}
+      {{ if and .Values.service.type (eq .Values.service.type "NodePort") }}
+      nodePort: {{ .Values.service.nodePort }}
+      {{ end }}
       protocol: TCP
       name: {{ .Values.service.name }}
-    - port: 16800
-      targetPort: 16800
+    - port: 16900
+      targetPort: 16900
       protocol: TCP
       name: {{ .Values.service.name }}-agent
   selector:
