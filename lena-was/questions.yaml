@@ -112,6 +112,15 @@ questions:
       - "manager"
     label: License Type
     required: false
+  - variable: lena.logOutput
+    default: "console"
+    description: "Log output type of LENA WAS."
+    type: enum
+    options:
+      - "console"
+      - "file"
+    label: Log output
+    required: false
 #  - variable: lena.registerTimeout
 #    default: "60000"
 #    description: "Max wait time for registering server. (unit : Milli-seconds, default : 60000)"
