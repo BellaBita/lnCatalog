@@ -44,6 +44,10 @@ spec:
           - -cl
           - {{ .Values.lena.clusterName }}
           {{end}}
+          {{if .Values.lena.systemName }}
+          - -ng
+          - {{ .Values.lena.systemName }}
+          {{end}}
           {{if .Values.lena.licenseType }}
           - -lc
           - {{ .Values.lena.licenseType }}

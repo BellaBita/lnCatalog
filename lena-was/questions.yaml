@@ -91,6 +91,12 @@ questions:
     max: 65535
     label: LENA Manager Service Port
     required: true
+  - variable: lena.systemName
+    default: ""
+    description: "The name of LENA System, this is ignored when ClusterName exist."
+    type: string
+    label: Name of System
+    required: false
   - variable: lena.clusterName
     default: ""
     description: "The name of LENA server cluster, this is available when register level is noSync, noWebSync, sync, clone."

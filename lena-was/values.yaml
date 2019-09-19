@@ -63,6 +63,7 @@ lena:
   managerIP: 127.0.0.1
   managerPort: 7700
   registerLevel: server
+  systemName:
   clusterName:
   licenseType:
   registerTimeout:
